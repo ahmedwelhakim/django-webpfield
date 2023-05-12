@@ -1,0 +1,36 @@
+
+repos:
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.0.2
+    hooks:
+      - id: autoflake
+        exclude: __init__.py
+        args:
+          - -v
+          - --in-place
+          - --remove-all-unused-imports
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: [ "--profile", "black", "--filter-files" ]
+        verbose: true
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        verbose: true
+        exclude: migrations/
+  - repo: https://github.com/adamchainz/blacken-docs
+    rev: 1.13.0
+    hooks:
+      - id: blacken-docs
+        additional_dependencies:
+          - black==23.3.0
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        args: [ '--extend-ignore=F401,F403','--max-line-length=88' ]
+        exclude: ^her/(her|user|commands)/
