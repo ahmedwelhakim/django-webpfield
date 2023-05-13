@@ -1,8 +1,54 @@
 [build-system]
-requires = ['setuptools']
-build-backend = 'setuptools.build_meta'
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-webpfield"
+authors = [
+    { name = "Ahmed Elhakim", email = "ahmed.w.elhakim@gmail.com" },
+]
+description = "A simple library that convert any user uploaded images to webP format"
+readme = "README.rst"
+requires-python = ">=3.11"
+keywords = [
+    "django",
+    "webp",
+]
+license = { file = 'LICENSE' }
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Graphics :: Presentation",
+]
+dynamic = ["version"]
+dependencies = [
+    "Pillow>=9.5.0",
+    "Django>=4.2",
+]
+urls = { github = "https://github.com/ahmedwelhakim/django-webpfield/" }
+
+[tool.hatch.version]
+path = "webpfield/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["webpfield"]
 
 [tool.black]
 target-version = ['py311']
 
+[tool.isort]
+combine_as_imports = true
+profile = "black"
 
