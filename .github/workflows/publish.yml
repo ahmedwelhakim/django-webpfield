@@ -6,16 +6,13 @@ on:
       - '*'
     branches:
       - dev
+  workflow_run:
+    workflows: [ "Checks" ]
+    types:
+      - completed
+
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run linting
-        uses: ./.github/workflows/linting.yml
-
   publish-to-pypi:
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
 
