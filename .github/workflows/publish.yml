@@ -53,6 +53,7 @@ jobs:
       - name: Getting the version from tags
         if: startsWith(github.ref, 'refs/tags')
         run: hatchling version ${GITHUB_REF#refs/tags/}
+        continue-on-error: true
 
       - name: Publish distribution 📦 to PyPI
         if: startsWith(github.ref, 'refs/tags')
