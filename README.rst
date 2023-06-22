@@ -23,17 +23,32 @@ To use the `WebPField` model field, simply import it from the library and add it
 .. code-block:: python
 
     from django.db import models
-    from webp_field.fields import WebPField
+    from webpfield.fields import WebPField
 
 
     class MyModel(models.Model):
         my_image = WebPField(upload_to="images/")
 
 
-Documentation
--------------
+Settings
+--------
+The default settings are:
 
-For more detailed information on how to use the library, please refer to the documentation at [Not Yet Available].
+.. code-block:: python
+
+    WEBP_FIELD_SETTINGS = {
+        "saving_kwargs": {
+            "quality": 75,
+            "lossless": False,
+        },
+        "delete_original": False,
+        "enable_svg": True,
+        "image_field_class": {"module": "django.db.models", "class_name": "ImageField"},
+    }
+
+- saving_kwargs: are the kwargs passed to pillow when saving the new image
+- enable_svg: if True you can upload and svg and it will remain svg as original, this achieved by updating the formfield kwargs of WebPField to file field instead of image field
+- image_field_class: The default parent class of WebPField is django ImageField, but you can override it with yours
 
 Contributing
 ------------
