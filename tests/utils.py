@@ -1,5 +1,5 @@
 from tests import test_settings as tests_settings
-from webpfield import settings as webp_settings, webp_storage
+from webpfield import fields, settings as webp_settings, webp_storage
 
 
 def override_webpfield_settings(**decorator_kwargs: {}):
@@ -32,6 +32,7 @@ def override_webpfield_settings(**decorator_kwargs: {}):
             settings.update(decorator_kwargs)
             for key, val in settings.items():
                 setattr(webp_storage, key, val)
+                setattr(fields, key, val)
 
             func(*args, **kwargs)
 

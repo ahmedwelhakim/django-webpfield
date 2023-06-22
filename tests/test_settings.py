@@ -4,6 +4,7 @@ PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 SECRET_KEY = "fake-key"
 
+ROOT_URLCONF = "tests.urls"
 WEBP_FIELD_SETTINGS = {
     "saving_kwargs": {
         "quality": 100,
