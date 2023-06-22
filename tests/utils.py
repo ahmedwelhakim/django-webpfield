@@ -1,5 +1,5 @@
 from tests import test_settings as tests_settings
-from webpfield import settings as webp_settings, webp_storage, fields
+from webpfield import fields, settings as webp_settings, webp_storage
 
 
 def override_webpfield_settings(**decorator_kwargs: {}):

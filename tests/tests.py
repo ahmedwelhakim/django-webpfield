@@ -9,8 +9,8 @@ from django.urls import reverse
 from PIL import Image, ImageChops
 
 from webpfield.webp_storage import WebPStorage
-from .models import TestImageModel
 
+from .models import TestImageModel
 from .test_settings import MEDIA_ROOT
 from .utils import override_webpfield_settings
 

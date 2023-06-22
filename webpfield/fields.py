@@ -1,7 +1,8 @@
+from django import forms
+
 from webpfield.webp_storage import WebPStorage
 
-from .settings import IMAGE_FIELD_CLASS, ENABLE_SVG
-from django import forms
+from .settings import ENABLE_SVG, IMAGE_FIELD_CLASS
 
 
 class WebPField(IMAGE_FIELD_CLASS):
