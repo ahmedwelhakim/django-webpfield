@@ -8,7 +8,7 @@ from .utils import convert_to_webp
 class WebPStorage(FileSystemStorage):
     def save(self, name, content, max_length=None):
         # In case of the image is already webP nothing extra need to be done
-        if name.endswith(".webp") or name.endswith(".svg"):
+        if name.endswith(".webp") or name.endswith(".svg") or name.endswith(".gif"):
             return super().save(name, content, max_length=max_length)
 
         image_bytes = convert_to_webp(content)
