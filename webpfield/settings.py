@@ -4,10 +4,10 @@ from django.conf import settings
 
 WEBP_FIELD_SETTINGS = {
     "saving_kwargs": {
-        "quality": 100,
+        "quality": 75,
         "lossless": False,
     },
-    "delete_original": True,
+    "delete_original": False,
     "enable_svg": True,
     "image_field_class": {"module": "django.db.models", "class_name": "ImageField"},
 }
