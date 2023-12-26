@@ -1,14 +1,20 @@
 from django.core.files.base import ContentFile
 from django.core.files.storage import FileSystemStorage
 
+from .image_formats import formats_to_convert
 from .settings import DELETE_ORIGINAL
 from .utils import convert_to_webp
 
 
 class WebPStorage(FileSystemStorage):
     def save(self, name, content, max_length=None):
+        # get Image extension
+        *_, extension = name.split(".")
+        # make the extension upper case
+        extension = extension.upper()
+
         # In case of the image is already webP nothing extra need to be done
-        if name.endswith(".webp") or name.endswith(".svg") or name.endswith(".gif"):
+        if extension not in formats_to_convert:
             return super().save(name, content, max_length=max_length)
 
         image_bytes = convert_to_webp(content)
