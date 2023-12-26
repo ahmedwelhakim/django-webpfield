@@ -4,7 +4,7 @@ from django.conf import settings
 
 WEBP_FIELD_SETTINGS = {
     "saving_kwargs": {
-        "quality": 75,
+        "quality": 90,
         "lossless": False,
     },
     "delete_original": False,
